@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Virtual India - A Digital Platform to Explore Indian Heritage & Culture. Discover the rich traditions, arts, festivals, and cultural heritage of India.">
+    <meta name="keywords"
+        content="Indian Culture, Heritage, Festivals, Art, Dance, Traditions, Virtual India, Atmanirbhar Bharat">
+    <meta name="author" content="Virtual India">
+    <title>Virtual India - Explore Indian Heritage & Culture</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇮🇳</text></svg>">
+
+    <!-- Fonts & Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Background Decorations -->
+    <div class="bg-image"></div>
+    <div class="bg-pattern"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">🏛️</div>
+                <div class="nav-logo-text">Virtual<span>India</span></div>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active" data-translate="nav.home">Home</a></li>
+                <li><a href="pages/regions.html" class="nav-link" data-translate="nav.regions">Explore Regions</a></li>
+                <li><a href="pages/festivals.html" class="nav-link" data-translate="nav.festivals">Festivals</a></li>
+                <li><a href="pages/art-gallery.html" class="nav-link" data-translate="nav.artGallery">Art & Culture</a>
+                </li>
+                <li><a href="pages/quiz.html" class="nav-link" data-translate="nav.quiz">Quiz</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="hi">हिं</button>
+                </div>
+
+                <div class="nav-search">
+                    <svg class="nav-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" placeholder="Search..." data-translate-placeholder="nav.search">
+                </div>
+
+                <a href="pages/login.html" class="btn btn-secondary nav-login-btn" data-translate="nav.login">Login</a>
+                <a href="pages/signup.html" class="btn btn-primary nav-signup-btn" data-translate="nav.signup">Sign
+                    Up</a>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span data-translate="hero.badge">🇮🇳 Discover the Soul of India</span>
+                </div>
+
+                <h1 class="hero-title">
+                    <span data-translate="hero.title">Experience the Magic of</span><br>
+                    <span data-translate="hero.titleHighlight">Indian Heritage</span>
+                </h1>
+
+                <p class="hero-description" data-translate="hero.description">
+                    Embark on a cultural journey through India's diverse traditions, ancient arts, vibrant festivals,
+                    and timeless heritage.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="pages/regions.html" class="btn btn-primary btn-lg" data-translate="hero.exploreBtn">
+                        Start Exploring
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="pages/quiz.html" class="btn btn-outline btn-lg" data-translate="hero.quizBtn">
+                        Take Quiz
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-translate="hero.stat1Value">29+</div>
+                        <div class="hero-stat-label" data-translate="hero.stat1Label">States & UTs</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-translate="hero.stat2Value">100+</div>
+                        <div class="hero-stat-label" data-translate="hero.stat2Label">Art Forms</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-translate="hero.stat3Value">50+</div>
+                        <div class="hero-stat-label" data-translate="hero.stat3Label">Festivals</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regions Section -->
+    <section class="section" id="regions">
+        <div class="container">
+            <h2 class="section-title" data-translate="regions.title">Explore India's Regions</h2>
+            <p class="section-subtitle" data-translate="regions.subtitle">
+                Discover the unique cultural heritage of each region of India
+            </p>
+
+            <div class="regions-grid">
+                <!-- North India -->
+                <a href="pages/region-detail.html?id=1" class="region-card region-north">
+                    <div class="region-card-bg"
+                        style="background: linear-gradient(135deg, rgba(255,153,51,0.3) 0%, rgba(230,126,34,0.4) 100%), url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&q=80') center/cover;">
+                    </div>
+                    <div class="region-card-overlay"></div>
+                    <div class="region-card-content">
+                        <h3 class="region-card-title" data-translate="regions.north">North India</h3>
+                        <p class="region-card-states">Rajasthan, Punjab, UP, Delhi...</p>
+                        <span class="region-card-link">
+                            <span data-translate="regions.explore">Explore Region</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- South India -->
+                <a href="pages/region-detail.html?id=2" class="region-card region-south">
+                    <div class="region-card-bg"
+                        style="background: linear-gradient(135deg, rgba(19,136,8,0.3) 0%, rgba(39,174,96,0.4) 100%), url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=600&q=80') center/cover;">
+                    </div>
+                    <div class="region-card-overlay"></div>
+                    <div class="region-card-content">
+                        <h3 class="region-card-title" data-translate="regions.south">South India</h3>
+                        <p class="region-card-states">Tamil Nadu, Kerala, Karnataka...</p>
+                        <span class="region-card-link">
+                            <span data-translate="regions.explore">Explore Region</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- East India -->
+                <a href="pages/region-detail.html?id=3" class="region-card region-east">
+                    <div class="region-card-bg"
+                        style="background: linear-gradient(135deg, rgba(65,105,225,0.3) 0%, rgba(107,141,214,0.4) 100%), url('https://images.unsplash.com/photo-1558431382-27e303142255?w=600&q=80') center/cover;">
+                    </div>
+                    <div class="region-card-overlay"></div>
+                    <div class="region-card-content">
+                        <h3 class="region-card-title" data-translate="regions.east">East India</h3>
+                        <p class="region-card-states">West Bengal, Odisha, Bihar...</p>
+                        <span class="region-card-link">
+                            <span data-translate="regions.explore">Explore Region</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- West India -->
+                <a href="pages/region-detail.html?id=4" class="region-card region-west">
+                    <div class="region-card-bg"
+                        style="background: linear-gradient(135deg, rgba(128,0,32,0.3) 0%, rgba(165,42,42,0.4) 100%), url('https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=600&q=80') center/cover;">
+                    </div>
+                    <div class="region-card-overlay"></div>
+                    <div class="region-card-content">
+                        <h3 class="region-card-title" data-translate="regions.west">West India</h3>
+                        <p class="region-card-states">Maharashtra, Gujarat, Goa...</p>
+                        <span class="region-card-link">
+                            <span data-translate="regions.explore">Explore Region</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Festivals -->
+    <section class="section" id="festivals" style="background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F0 100%);">
+        <div class="container">
+            <h2 class="section-title" data-translate="festivals.title">Festival Calendar</h2>
+            <p class="section-subtitle" data-translate="festivals.subtitle">
+                Celebrate the colorful festivals that bring India together
+            </p>
+
+            <!-- Today's Festival Widget -->
+            <div id="todayFestivalWidget"
+                style="background: linear-gradient(135deg, rgba(255, 153, 51, 0.1) 0%, rgba(255, 215, 0, 0.08) 100%); border: 2px solid rgba(255, 153, 51, 0.4); border-radius: var(--radius-2xl); padding: var(--space-6); margin-bottom: var(--space-10); text-align: center; box-shadow: 0 4px 20px rgba(255, 153, 51, 0.15);">
+                <div id="todayWidgetContent">
+                    <span style="color: var(--text-muted);">Loading today's festival...</span>
+                </div>
+            </div>
+
+            <div class="festival-calendar" id="festivalGrid">
+                <!-- Festivals loaded dynamically -->
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-10);">
+                <a href="pages/festivals.html" class="btn btn-primary btn-lg" data-translate="festivals.viewAll">
+                    View All Festivals
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Art & Culture Preview -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-translate="gallery.title">Art & Culture Gallery</h2>
+            <p class="section-subtitle" data-translate="gallery.subtitle">
+                Explore India's rich artistic heritage through various art forms
+            </p>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items loaded dynamically -->
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-10);">
+                <a href="pages/art-gallery.html" class="btn btn-primary btn-lg">
+                    Explore Full Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz CTA Section -->
+    <section class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F0 100%);">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <div style="font-size: 4rem; margin-bottom: var(--space-4);">🎯</div>
+                <h2 class="section-title" data-translate="quiz.title">Test Your Knowledge</h2>
+                <p class="section-subtitle" data-translate="quiz.subtitle">
+                    How well do you know Indian culture and heritage?
+                </p>
+                <a href="pages/quiz.html" class="btn btn-primary btn-lg" data-translate="quiz.startQuiz">
+                    Start Quiz
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">🏛️</div>
+                        <div class="footer-logo-text">Virtual<span>India</span></div>
+                    </div>
+                    <p class="footer-description" data-translate="footer.description">
+                        A digital platform dedicated to preserving and promoting India's rich cultural heritage through
+                        technology.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title" data-translate="footer.quickLinks">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/regions.html" class="footer-link" data-translate="nav.regions">Explore
+                                Regions</a></li>
+                        <li><a href="pages/festivals.html" class="footer-link"
+                                data-translate="nav.festivals">Festivals</a></li>
+                        <li><a href="pages/art-gallery.html" class="footer-link" data-translate="nav.artGallery">Art &
+                                Culture</a></li>
+                        <li><a href="pages/quiz.html" class="footer-link" data-translate="nav.quiz">Quiz</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title" data-translate="footer.resources">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Swadeshi</a></li>
+                        <li><a href="#" class="footer-link">Atmanirbhar Bharat</a></li>
+                        <li><a href="#" class="footer-link">Ministry of Culture</a></li>
+                        <li><a href="#" class="footer-link">Indian Heritage Portal</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title" data-translate="footer.contact">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-translate="footer.copyright">
+                    © 2024 Virtual India. All rights reserved.
+                </p>
+                <p class="footer-tagline" data-translate="footer.tagline">
+                    Made with ❤️ for Atmanirbhar Bharat
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Load featured festivals and today's widget
+        document.addEventListener('DOMContentLoaded', async () => {
+            const festivalGrid = document.getElementById('festivalGrid');
+            const galleryGrid = document.getElementById('galleryGrid');
+            const todayWidget = document.getElementById('todayWidgetContent');
+
+            // Load Today's Festival Widget
+            try {
+                const todayResponse = await apiCall('/festivals.php', { params: { action: 'today' } });
+                if (todayResponse.success && todayResponse.data.length > 0) {
+                    const festival = todayResponse.data[0];
+                    const isUpcoming = festival.is_upcoming;
+                    todayWidget.innerHTML = `
+                        <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-4); flex-wrap: wrap;">
+                            <span style="font-size: 2.5rem;">${festival.emoji || '🎉'}</span>
+                            <div style="text-align: left;">
+                                <div style="font-size: var(--text-xs); color: var(--gold); font-weight: 600; margin-bottom: 2px;">
+                                    ${isUpcoming ? '📅 COMING SOON' : '✨ TODAY\'S SPECIAL'}
+                                </div>
+                                <div style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600;">
+                                    ${festival.name}
+                                </div>
+                            </div>
+                            <a href="pages/festivals.html" class="btn btn-primary" style="margin-left: auto;">
+                                Explore →
+                            </a>
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('todayFestivalWidget').style.display = 'none';
+                }
+            } catch (error) {
+                document.getElementById('todayFestivalWidget').style.display = 'none';
+            }
+
+            // Load festivals
+            try {
+                const response = await fetchFestivals();
+                if (response.success && response.data) {
+                    const festivals = response.data.slice(0, 6);
+                    festivalGrid.innerHTML = festivals.map(f => `
+                        <div class="festival-card" style="border-left: 3px solid ${f.color || '#FF9933'}">
+                            <div style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
+                                <span style="font-size: 1.5rem;">${f.emoji || '🎉'}</span>
+                                <span class="festival-month">${getMonthName(f.month)}</span>
+                            </div>
+                            <h3 class="festival-name">${f.name}</h3>
+                            <p class="festival-description">${f.description}</p>
+                            ${f.region_name ? `<p style="font-size: var(--text-sm); color: var(--saffron); margin-top: var(--space-3);">📍 ${f.region_name}</p>` : '<p style="font-size: var(--text-sm); color: var(--saffron); margin-top: var(--space-3);">📍 Pan-India</p>'}
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Error loading festivals:', error);
+            }
+
+            // Load gallery items
+            try {
+                const response = await fetchCulturalItems();
+                if (response.success && response.data) {
+                    const items = response.data.slice(0, 6);
+                    galleryGrid.innerHTML = items.map(item => `
+                        <div class="gallery-item" style="background: linear-gradient(135deg, #FFFFFF 0%, #FFF8F0 100%);">
+                            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                                ${getCategoryEmoji(item.category)}
+                            </div>
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-category">${formatCategory(item.category)}</span>
+                                <h3 class="gallery-item-title">${item.name}</h3>
+                                <p style="font-size: var(--text-sm); color: var(--text-muted); margin-top: var(--space-2);">
+                                    ${item.region_name || ''}
+                                </p>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Error loading gallery:', error);
+            }
+        });
+
+        function getCategoryEmoji(category) {
+            const emojis = {
+                dance: '💃',
+                art: '🎨',
+                craft: '🧵',
+                music: '🎵',
+                cuisine: '🍛'
+            };
+            return emojis[category] || '🎭';
+        }
+    </script>
+</body>
+
+</html>

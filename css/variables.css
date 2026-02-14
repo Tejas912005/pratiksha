@@ -1,0 +1,135 @@
+/**
+ * Virtual India - CSS Design System Variables
+ * Premium LIGHT theme for Indian heritage platform
+ */
+
+:root {
+    /* Primary Colors - Indian Tricolor Inspired */
+    --saffron: #FF9933;
+    --saffron-dark: #E67E22;
+    --saffron-light: #FFB366;
+    --white-pure: #FFFFFF;
+    --green-india: #138808;
+    --green-light: #27AE60;
+    --green-dark: #0E5C05;
+    
+    /* Secondary Colors - Rich Heritage */
+    --burgundy: #800020;
+    --burgundy-light: #A52A2A;
+    --gold: #FFD700;
+    --gold-dark: #DAA520;
+    --royal-blue: #4169E1;
+    --peacock: #00A86B;
+    
+    /* Light Theme - Primary Colors */
+    --dark-bg: #FFF8F0;
+    --dark-surface: #FFFFFF;
+    --dark-card: #FFFFFF;
+    --dark-border: #E8E0D8;
+    --gray-900: #F5EDE5;
+    --gray-800: #E8DFD5;
+    --gray-700: #D5CBC0;
+    --gray-600: #9A8F82;
+    --gray-500: #7A6F62;
+    --gray-400: #5A5048;
+    --gray-300: #3D3530;
+    --gray-200: #2D2520;
+    --gray-100: #1A1510;
+    --text-primary: #2D2520;
+    --text-secondary: #5A5048;
+    --text-muted: #7A6F62;
+    
+    /* Gradients - Light Theme */
+    --gradient-saffron: linear-gradient(135deg, #FF9933 0%, #E67E22 100%);
+    --gradient-heritage: linear-gradient(135deg, #800020 0%, #FF9933 50%, #138808 100%);
+    --gradient-gold: linear-gradient(135deg, #FFD700 0%, #DAA520 100%);
+    --gradient-royal: linear-gradient(135deg, #4169E1 0%, #800020 100%);
+    --gradient-peacock: linear-gradient(135deg, #00A86B 0%, #4169E1 100%);
+    --gradient-dark: linear-gradient(180deg, #FFF8F0 0%, #F5EDE5 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 240, 0.9) 100%);
+    
+    /* Glassmorphism - Light */
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --font-display: 'Outfit', sans-serif;
+    --font-hindi: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+    
+    /* Font Sizes */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+    
+    /* Font Weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-3xl: 2rem;
+    --radius-full: 9999px;
+    
+    /* Shadows - Softer for light theme */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.18);
+    --shadow-glow-saffron: 0 0 30px rgba(255, 153, 51, 0.25);
+    --shadow-glow-gold: 0 0 30px rgba(255, 215, 0, 0.25);
+    --shadow-glow-green: 0 0 30px rgba(19, 136, 8, 0.25);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 500ms ease;
+    --transition-spring: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Z-Index */
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal-backdrop: 400;
+    --z-modal: 500;
+    --z-tooltip: 600;
+    
+    /* Container */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1440px;
+}

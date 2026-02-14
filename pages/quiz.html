@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Virtual India</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇮🇳</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="bg-pattern"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">
+                <div class="nav-logo-icon">🏛️</div>
+                <div class="nav-logo-text">Virtual<span>India</span></div>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="regions.html" class="nav-link">Explore Regions</a></li>
+                <li><a href="festivals.html" class="nav-link">Festivals</a></li>
+                <li><a href="art-gallery.html" class="nav-link">Art & Culture</a></li>
+                <li><a href="quiz.html" class="nav-link active">Quiz</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="hi">हिं</button>
+                </div>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Quiz Section -->
+    <section class="section" style="padding-top: 120px; min-height: 100vh;">
+        <div class="container">
+            <h1 class="section-title" data-translate="quiz.title">Test Your Knowledge</h1>
+            <p class="section-subtitle" data-translate="quiz.subtitle">
+                How well do you know Indian culture and heritage?
+            </p>
+
+            <div class="quiz-container" id="quizContainer">
+                <!-- Quiz content loaded by quiz.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 0;">
+                <p class="footer-copyright">© 2024 Virtual India. All rights reserved.</p>
+                <p class="footer-tagline">Made with ❤️ for Atmanirbhar Bharat</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+</body>
+
+</html>

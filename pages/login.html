@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Virtual India</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇮🇳</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="bg-pattern"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <a href="../index.html" class="auth-logo">Virtual<span>India</span></a>
+                    <h1 class="auth-title" data-translate="auth.login">Login</h1>
+                </div>
+
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label" data-translate="auth.email">Email Address</label>
+                        <input type="email" class="form-input" id="email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" data-translate="auth.password">Password</label>
+                        <input type="password" class="form-input" id="password" required
+                            placeholder="Enter your password">
+                    </div>
+
+                    <div id="errorMessage"
+                        style="color: #EF4444; font-size: var(--text-sm); margin-bottom: var(--space-4); display: none;">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg" data-translate="auth.loginBtn">
+                        Login
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <span data-translate="auth.noAccount">Don't have an account?</span>
+                    <a href="signup.html" data-translate="auth.signup">Sign Up</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-6);">
+                <a href="../index.html" style="color: var(--text-muted); font-size: var(--text-sm);">
+                    ← Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('errorMessage');
+
+            try {
+                const response = await login(email, password);
+
+                if (response.success) {
+                    setUser(response.user);
+                    showToast('Login successful!', 'success');
+                    setTimeout(() => {
+                        window.location.href = '../index.html';
+                    }, 1000);
+                } else {
+                    errorDiv.textContent = response.message;
+                    errorDiv.style.display = 'block';
+                }
+            } catch (error) {
+                errorDiv.textContent = 'An error occurred. Please try again.';
+                errorDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

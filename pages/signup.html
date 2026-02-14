@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Virtual India</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇮🇳</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="bg-pattern"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <a href="../index.html" class="auth-logo">Virtual<span>India</span></a>
+                    <h1 class="auth-title" data-translate="auth.signup">Sign Up</h1>
+                </div>
+
+                <form class="auth-form" id="signupForm">
+                    <div class="form-group">
+                        <label class="form-label" data-translate="auth.name">Full Name</label>
+                        <input type="text" class="form-input" id="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" data-translate="auth.email">Email Address</label>
+                        <input type="email" class="form-input" id="email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" data-translate="auth.password">Password</label>
+                        <input type="password" class="form-input" id="password" required placeholder="Create a password"
+                            minlength="6">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" data-translate="auth.confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-input" id="confirmPassword" required
+                            placeholder="Confirm your password">
+                    </div>
+
+                    <div id="errorMessage"
+                        style="color: #EF4444; font-size: var(--text-sm); margin-bottom: var(--space-4); display: none;">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg" data-translate="auth.signupBtn">
+                        Create Account
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <span data-translate="auth.hasAccount">Already have an account?</span>
+                    <a href="login.html" data-translate="auth.login">Login</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-6);">
+                <a href="../index.html" style="color: var(--text-muted); font-size: var(--text-sm);">
+                    ← Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorDiv = document.getElementById('errorMessage');
+
+            if (password !== confirmPassword) {
+                errorDiv.textContent = 'Passwords do not match';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            try {
+                const response = await register(name, email, password);
+
+                if (response.success) {
+                    showToast('Account created successfully!', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 1500);
+                } else {
+                    errorDiv.textContent = response.message;
+                    errorDiv.style.display = 'block';
+                }
+            } catch (error) {
+                errorDiv.textContent = 'An error occurred. Please try again.';
+                errorDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

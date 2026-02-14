@@ -1,0 +1,21 @@
+# Vendor
+/vendor/
+/node_modules/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs
+*.log

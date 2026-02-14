@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Region Detail - Virtual India</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇮🇳</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Heritage Educational Theme */
+        :root {
+            --heritage-cream: #FDF8F3;
+            --heritage-sand: #F5EBE0;
+            --heritage-terracotta: #C4785E;
+            --heritage-rust: #A0522D;
+            --heritage-sage: #7C9082;
+            --heritage-olive: #5C6B4E;
+            --heritage-navy: #2C3E50;
+            --heritage-gold: #D4A574;
+            --heritage-shadow: rgba(44, 62, 80, 0.08);
+        }
+
+        .region-hero {
+            padding: 120px 0 60px;
+            position: relative;
+            background: linear-gradient(180deg, var(--heritage-cream) 0%, var(--heritage-sand) 100%);
+        }
+
+        .region-hero-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .region-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link {
+            color: var(--heritage-terracotta);
+            font-size: var(--text-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--heritage-rust);
+        }
+
+        .region-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--heritage-navy);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .region-description {
+            font-size: 1.125rem;
+            color: #5A6C7D;
+            max-width: 700px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        /* States & Territories Section */
+        .states-territories-section {
+            margin-top: 40px;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--heritage-sage);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-label-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--heritage-sage);
+            color: white;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        .states-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .state-pill {
+            padding: 10px 20px;
+            background: white;
+            border: 1.5px solid var(--heritage-sand);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--heritage-navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .state-pill:hover {
+            background: var(--heritage-terracotta);
+            border-color: var(--heritage-terracotta);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(196, 120, 94, 0.3);
+        }
+
+        .state-pill-icon {
+            font-size: 14px;
+        }
+
+        /* Content Sections */
+        .content-wrapper {
+            background: var(--heritage-cream);
+            padding: 60px 0;
+        }
+
+        .heritage-section {
+            margin-bottom: 56px;
+        }
+
+        .heritage-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .heritage-section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--heritage-sand);
+        }
+
+        .heritage-section-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--heritage-terracotta) 0%, var(--heritage-rust) 100%);
+            border-radius: 12px;
+            font-size: 22px;
+            box-shadow: 0 4px 12px rgba(196, 120, 94, 0.25);
+        }
+
+        .heritage-section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--heritage-navy);
+            margin: 0;
+        }
+
+        .heritage-section-subtitle {
+            font-size: 0.875rem;
+            color: #7A8B9C;
+            margin: 4px 0 0 0;
+        }
+
+        /* Heritage Cards */
+        .heritage-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .heritage-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--heritage-sand);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .heritage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--heritage-terracotta);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .heritage-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px var(--heritage-shadow);
+            border-color: var(--heritage-terracotta);
+        }
+
+        .heritage-card:hover::before {
+            opacity: 1;
+        }
+
+        .heritage-card-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--heritage-sand);
+            border-radius: 10px;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .heritage-card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--heritage-navy);
+            margin: 0 0 8px 0;
+            line-height: 1.4;
+        }
+
+        .heritage-card-description {
+            font-size: 0.9rem;
+            color: #6B7C8D;
+            margin: 0;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .heritage-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--heritage-sand);
+        }
+
+        .heritage-card-tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: var(--heritage-sand);
+            color: var(--heritage-rust);
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Festival Cards - Compact Design */
+        .festival-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .festival-item {
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid var(--heritage-sand);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .festival-item:hover {
+            box-shadow: 0 8px 24px var(--heritage-shadow);
+            transform: translateY(-2px);
+        }
+
+        .festival-date-badge {
+            min-width: 56px;
+            padding: 12px 8px;
+            background: linear-gradient(135deg, var(--heritage-sage) 0%, var(--heritage-olive) 100%);
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .festival-date-badge span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .festival-date-badge strong {
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .festival-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--heritage-navy);
+            margin: 0 0 6px 0;
+        }
+
+        .festival-info p {
+            font-size: 0.85rem;
+            color: #6B7C8D;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Empty State */
+        .empty-section {
+            text-align: center;
+            padding: 48px 24px;
+            background: white;
+            border-radius: 16px;
+            border: 1px dashed var(--heritage-sand);
+        }
+
+        .empty-section-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .empty-section p {
+            color: #7A8B9C;
+            margin: 0;
+        }
+
+        /* Scroll Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heritage-section {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .heritage-section:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .heritage-section:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .heritage-section:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .heritage-section:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .region-hero {
+                padding: 100px 0 40px;
+            }
+
+            .heritage-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .heritage-section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .state-pill {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-pattern"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">
+                <div class="nav-logo-icon">🏛️</div>
+                <div class="nav-logo-text">Virtual<span>India</span></div>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="regions.html" class="nav-link active">Explore Regions</a></li>
+                <li><a href="festivals.html" class="nav-link">Festivals</a></li>
+                <li><a href="art-gallery.html" class="nav-link">Art & Culture</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="hi">हिं</button>
+                </div>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="regionContent">
+        <div class="loading" style="min-height: 100vh; display: flex; align-items: center;">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 0;">
+                <p class="footer-copyright">© 2024 Virtual India. All rights reserved.</p>
+                <p class="footer-tagline">Made with ❤️ for Atmanirbhar Bharat</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        const regionColors = {
+            1: 'linear-gradient(135deg, #FF9933 0%, #E67E22 100%)',
+            2: 'linear-gradient(135deg, #138808 0%, #27AE60 100%)',
+            3: 'linear-gradient(135deg, #4169E1 0%, #6B8DD6 100%)',
+            4: 'linear-gradient(135deg, #800020 0%, #A52A2A 100%)'
+        };
+
+        const sectionConfig = {
+            dance: {
+                icon: '💃',
+                title: 'Traditional Dances',
+                subtitle: 'Classical and folk dance forms',
+                cardIcon: '🎭'
+            },
+            art: {
+                icon: '🎨',
+                title: 'Traditional Art Forms',
+                subtitle: 'Paintings, sculptures & visual arts',
+                cardIcon: '🖼️'
+            },
+            craft: {
+                icon: '🧵',
+                title: 'Traditional Crafts',
+                subtitle: 'Handmade craftsmanship & textiles',
+                cardIcon: '🪡'
+            },
+            music: {
+                icon: '🎵',
+                title: 'Classical Music',
+                subtitle: 'Traditional musical heritage',
+                cardIcon: '🎶'
+            },
+            cuisine: {
+                icon: '🍛',
+                title: 'Regional Cuisine',
+                subtitle: 'Traditional culinary delights',
+                cardIcon: '🥘'
+            },
+            architecture: {
+                icon: '🏛️',
+                title: 'Famous Architecture',
+                subtitle: 'Historic monuments & structures',
+                cardIcon: '🏰'
+            }
+        };
+
+        const getMonthShort = (month) => {
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            return months[month - 1] || 'N/A';
+        };
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const regionId = urlParams.get('id');
+            const container = document.getElementById('regionContent');
+
+            if (!regionId) {
+                window.location.href = 'regions.html';
+                return;
+            }
+
+            try {
+                const response = await fetchRegionDetail(regionId);
+                if (response.success && response.data) {
+                    const region = response.data;
+                    document.title = `${region.name} - Virtual India`;
+
+                    // Group cultural items by category
+                    const grouped = {};
+                    (region.cultural_items || []).forEach(item => {
+                        if (!grouped[item.category]) grouped[item.category] = [];
+                        grouped[item.category].push(item);
+                    });
+
+                    // Parse states
+                    const states = region.states ? region.states.split(',').map(s => s.trim()).filter(s => s) : [];
+
+                    container.innerHTML = `
+                        <!-- Hero Section -->
+                        <section class="region-hero">
+                            <div class="region-hero-bg" style="background: ${regionColors[regionId]}"></div>
+                            <div class="container region-hero-content">
+                                <a href="regions.html" class="back-link">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                                    </svg>
+                                    Back to Regions
+                                </a>
+                                <h1 class="region-title">${region.name}</h1>
+                                <p class="region-description">${region.description}</p>
+                                
+                                <!-- States & Territories -->
+                                ${states.length > 0 ? `
+                                    <div class="states-territories-section">
+                                        <div class="section-label">
+                                            <span class="section-label-icon">📍</span>
+                                            States & Territories
+                                        </div>
+                                        <div class="states-pills">
+                                            ${states.map(state => `
+                                                <a href="#" class="state-pill" onclick="return false;">
+                                                    <span class="state-pill-icon">🏷️</span>
+                                                    ${state}
+                                                </a>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </section>
+                        
+                        <!-- Content Sections -->
+                        <div class="content-wrapper">
+                            <div class="container">
+                                ${Object.entries(grouped).map(([category, items]) => {
+                        const config = sectionConfig[category] || {
+                            icon: '🎭',
+                            title: formatCategory(category),
+                            subtitle: 'Cultural heritage',
+                            cardIcon: '✨'
+                        };
+                        return `
+                                        <div class="heritage-section">
+                                            <div class="heritage-section-header">
+                                                <div class="heritage-section-icon">${config.icon}</div>
+                                                <div>
+                                                    <h2 class="heritage-section-title">${config.title}</h2>
+                                                    <p class="heritage-section-subtitle">${config.subtitle}</p>
+                                                </div>
+                                            </div>
+                                            <div class="heritage-cards-grid">
+                                                ${items.map(item => `
+                                                    <div class="heritage-card">
+                                                        <div class="heritage-card-icon">${config.cardIcon}</div>
+                                                        <h3 class="heritage-card-title">${item.name}</h3>
+                                                        <p class="heritage-card-description">${item.description || 'A beautiful expression of cultural heritage from this region.'}</p>
+                                                        <div class="heritage-card-meta">
+                                                            <span class="heritage-card-tag">${formatCategory(item.category)}</span>
+                                                        </div>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                    `;
+                    }).join('')}
+                                
+                                <!-- Festivals Section -->
+                                ${region.festivals?.length > 0 ? `
+                                    <div class="heritage-section">
+                                        <div class="heritage-section-header">
+                                            <div class="heritage-section-icon">🎉</div>
+                                            <div>
+                                                <h2 class="heritage-section-title">Regional Festivals</h2>
+                                                <p class="heritage-section-subtitle">Celebrations throughout the year</p>
+                                            </div>
+                                        </div>
+                                        <div class="festival-grid">
+                                            ${region.festivals.map(f => `
+                                                <div class="festival-item">
+                                                    <div class="festival-date-badge">
+                                                        <span>Month</span>
+                                                        <strong>${getMonthShort(f.month)}</strong>
+                                                    </div>
+                                                    <div class="festival-info">
+                                                        <h4>${f.name}</h4>
+                                                        <p>${f.description || 'A vibrant celebration of tradition and culture.'}</p>
+                                                    </div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                ` : ''}
+                                
+                                <!-- Architecture Section (Static Demo) -->
+                                <div class="heritage-section">
+                                    <div class="heritage-section-header">
+                                        <div class="heritage-section-icon">🏛️</div>
+                                        <div>
+                                            <h2 class="heritage-section-title">Famous Architecture</h2>
+                                            <p class="heritage-section-subtitle">Historic monuments & structural marvels</p>
+                                        </div>
+                                    </div>
+                                    <div class="heritage-cards-grid">
+                                        <div class="heritage-card">
+                                            <div class="heritage-card-icon">🏰</div>
+                                            <h3 class="heritage-card-title">Historic Forts</h3>
+                                            <p class="heritage-card-description">Majestic fortifications showcasing medieval architectural brilliance.</p>
+                                            <div class="heritage-card-meta">
+                                                <span class="heritage-card-tag">Architecture</span>
+                                            </div>
+                                        </div>
+                                        <div class="heritage-card">
+                                            <div class="heritage-card-icon">🛕</div>
+                                            <h3 class="heritage-card-title">Ancient Temples</h3>
+                                            <p class="heritage-card-description">Sacred structures with intricate carvings and spiritual significance.</p>
+                                            <div class="heritage-card-meta">
+                                                <span class="heritage-card-tag">Architecture</span>
+                                            </div>
+                                        </div>
+                                        <div class="heritage-card">
+                                            <div class="heritage-card-icon">🕌</div>
+                                            <h3 class="heritage-card-title">Royal Palaces</h3>
+                                            <p class="heritage-card-description">Grand palatial complexes reflecting royal heritage and craftsmanship.</p>
+                                            <div class="heritage-card-meta">
+                                                <span class="heritage-card-tag">Architecture</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="empty-state" style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--heritage-cream);">
+                            <div class="empty-state-icon">🔍</div>
+                            <h3 class="empty-state-title" style="color: var(--heritage-navy);">Region not found</h3>
+                            <a href="regions.html" class="btn btn-primary" style="margin-top: 24px; background: var(--heritage-terracotta);">View All Regions</a>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error(error);
+                container.innerHTML = '<div class="empty-state" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;"><h3>Error loading region</h3></div>';
+            }
+        });
+    </script>
+</body>
+
+</html>

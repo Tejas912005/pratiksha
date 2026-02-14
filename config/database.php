@@ -1,13 +1,13 @@
 <?php
 /**
  * Virtual India - Database Configuration
- * Database connection settings for MySQL via XAMPP
+ * Database connection settings for MySQL via XAMPP or Docker
  */
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'virtual_india');
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') !== false ? getenv('DB_PASS') : '');
+define('DB_NAME', getenv('DB_NAME') ?: 'virtual_india');
 
 /**
  * Create database connection

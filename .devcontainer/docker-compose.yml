@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/php:1-8.2-bullseye
+    volumes:
+      - ..:/var/www/html
+    ports:
+      - "80:80"
+    links:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASS: root
+      DB_NAME: virtual_india
+    # Install mysqli extension and start apache
+    command: /bin/sh -c "docker-php-ext-install mysqli && apache2-foreground"
+
+  db:
+    image: mariadb:10
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: virtual_india
+    volumes:
+      - ../database/virtual_india.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
